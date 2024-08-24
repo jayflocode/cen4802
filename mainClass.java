@@ -44,22 +44,30 @@ public class mainClass {
 
     }
 
+    /**
+     * A mismatch Exception will be triggered by entering a non-integer character
+     * For Example: A 10.5 will be entered, or a String, resulting in mismatch error
+     *
+     * @throws InputMismatchException A throw and catch is created to create error
+     */
 
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws InputMismatchException {
 
         Scanner scan = new Scanner(System.in);
 
-                int input;
+        try {
+            int input;
 
-                System.out.println("Please Enter Integer");
+            System.out.println("Please Enter Integer");
 
-                input = scan.nextInt();
+            input = scan.nextInt();
+            System.out.println("The " + input + "th term is " + recursive(input));
 
-
-                // print command includes term and calls recursive method
-
-                System.out.println("The " + input + "th term is " + recursive(input));
-
+        }
+        catch(InputMismatchException e) {
+            System.out.println("Wrong Input: Please Enter Integer characters only");
+        }
 
 
 
